@@ -1,15 +1,13 @@
-#!Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
     stages {
         stage('build') {
             steps {
-                echo ’build step’
+                sh “echo build step executing”
             }
         }
 	stage(‘test’) {
             steps {
-                echo ’test step’
+                print ‘test step executing’
             }
         }
     }
