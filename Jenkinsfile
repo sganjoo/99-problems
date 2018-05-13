@@ -4,7 +4,12 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh ‘java8\mvn --version'
+                echo ’build step’
+            }
+        }
+	stage(‘test’) {
+            steps {
+                echo ’test step’
             }
         }
     }
