@@ -1,15 +1,25 @@
 pipeline {
-    agent { docker { image 'maven:3.3.3' } }
-    stages {
+  agent any
+  stages {
+    stage('build') {
+      parallel {
         stage('build') {
-            steps {
-                echo 'build step executing'
-            }
+          steps {
+            echo 'build step'
+          }
         }
-	stage('test') {
-            steps {
-                echo 'test step executing'
-            }
+        stage('build 2') {
+          steps {
+            echo 'build 2'
+          }
         }
+      }
     }
+    stage('unit tests') {
+      agent any
+      steps {
+        echo 'test step executing'
+      }
+    }
+  }
 }
